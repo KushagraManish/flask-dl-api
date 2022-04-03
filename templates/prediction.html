@@ -17,7 +17,36 @@
 			<h1 class="display-3 text-success">Here's your prediction.</h1>
 			<p class="lead text-primary">Segmented Image from our system showing prelimnary areas.</p>
 			<hr class="my-2">
-			<img src="{{data}}" height="255" width="255" />
+
+
+			<div class="container">
+				<div class="row">
+				  <div class="col-md" style="padding-right: 10px;">
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="static/bga.png" height="255" width="255" />
+						<div class="card-body btn btn-outline-warning">
+						  <h5 class="card-title ">Original sample image</h5>
+						</div>
+					</div>
+				  </div>
+				  <div class="col-md">
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="{{data}}" height="255" width="255" />
+						<div class="card-body btn btn-outline-primary">
+						  <h5 class="card-title ">Predicted mask</h5>
+						</div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			
+
+			
+
+			
+
+			
+			
 			<br>
 			<hr>
 			<p class="lead">

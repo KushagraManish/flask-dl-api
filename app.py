@@ -11,7 +11,7 @@ from scipy import misc
 import PIL
 from PIL import Image as im
 import numpy
-
+import copy
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
@@ -72,10 +72,17 @@ def prediction():
 	img_pre.save("img_pre.jpg")
 	img_pre = im.open("img_pre.jpg")
 	img_pre.save('static/bga.png');
-	img = numpy.asarray(PIL.Image.open('img_pre.jpg'))
-	# img = im.open("img_pre.jpg")
-	img = img.resize((im_height, im_width))
 
+
+	del(img_pre)
+
+	img = copy.copy('img_pre.jpg')
+
+	img = (PIL.Image.open('static/bga.png'))
+	
+	img.save("img.jpg")
+	img = cv2.imread("img.jpg")
+	img = cv2.resize(img ,(im_height, im_width))
 	img = img / 255
 	img = img[np.newaxis, :, :, :]
 	pred=model.predict(img)
